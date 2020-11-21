@@ -3,34 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <div id="name">Pud</div>
+    <div class="container">
+        <div id="name">PUD</div>
     <div id="game">
 
     </div>
-    <button id="send">Trả lời</button>
+    <div class="btn-send">
+        <button id="send">Trả lời</button>
+    </div>
     <div id="point"></div>
+    </div>
     
 </body>
 
 <template id="gameScreen">
+    <link rel="stylesheet" href="style.css">
     <div id="question"></div>
-    <div id="answer">
-        
-    </div>
+    <div id="answer"></div>
     
 </template>
 
 <template id="quizz">
+    <link rel="stylesheet" href="style.css">
+    <div class="choose">
+        <div class="aside-left">
+            <input type="checkbox" id="checkbox">
+        </div>
+        <div class="aside-right">
+            <div id="content"></div>
+        </div>
+    </div>
     
-    <div class="aside-left">
-        <input type="checkbox" id="checkbox">
-    </div>
-    <div class="aside-right">
-        <div id="content"></div>
-    </div>
     
 </template>
 <script src="./app.js" type="module"></script>

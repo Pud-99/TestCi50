@@ -1,24 +1,24 @@
 // bài 1
-// function arrsolve(arr1,arr2){
-//     let res=[];
-//     for(let i=0;i<arr1.length;i++){
-//         for(let j=0;j<arr2.length;j++){
-//             if(arr1[i]==arr2[j]){
-//                 res.push(arr1[i]);
-//             }
-//         }
-//     }
-//     let tmp = arr1.concat(arr2);
-//     for(let i=0;i<res.length;i++){
-//         let tmpp = res[i];
-//         tmp.filter(function(res){
-//             return res!=tmpp;
-//         });
-//     }
-//     return tmp;
-// }
+function arrsolve(arr1,arr2){
+    let res=[];
+    for(let i=0;i<arr1.length;i++){
+        for(let j=0;j<arr2.length;j++){
+            if(arr1[i]==arr2[j]){
+                res.push(arr1[i]);
+            }
+        }
+    }
+    let tmp = arr1.concat(arr2);
+    var x = tmp.filter(word => word !=res[0]);
+    for(let i=1;i<res.length;i++){
+        let tmpp = x;
+        tmpp = x.filter(word => word != res[i]);
+        x = tmpp;
+    }
+    return x;
+}
 
-// console.log(arrsolve( [1, 2, "a"] ,  [1, 3, "b"]));
+console.log(arrsolve( ["x","y",3,1, 2, "a"] ,  ["y",1, 3, "b"]));
 
 
 // bài 2
@@ -64,7 +64,6 @@
 import "./game.js";
 import "./quizz.js";
 
-
 async function getdata(){
     const respone = await fetch('https://opentdb.com/api.php?amount=5&category=21&difficulty=easy&type=multiple');
     const data = await respone.json();
@@ -85,12 +84,3 @@ async function getdata(){
 
 }
 getdata()
-
-let ques = ["do you like me","do you like me","do you like me","do you like me"];
-let anw = ["yes","no","yess","no"];
-
-
-for(let i=0;i<ques.length;i++){
-    document.getElementById(`game${i}`).answer = anw;
-    document.getElementById(`game${i}`).render();
-}
